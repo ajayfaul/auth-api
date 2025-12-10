@@ -23,6 +23,7 @@ jobs:
             curl -fsSL https://fnm.vercel.app/install | bash
             export PATH="$HOME/.fnm:$PATH"
             eval "$(fnm env)"
+            source /home/***/.bashrc
             fnm install v22
             fnm use v22
             node -v
