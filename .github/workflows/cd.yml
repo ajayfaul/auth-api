@@ -20,7 +20,13 @@ jobs:
           script: |
             cd ~/auth-api
             git pull origin master
+            curl -fsSL https://fnm.vercel.app/install | bash
+            export PATH="$HOME/.fnm:$PATH"
+            eval "$(fnm env)"
+            fnm install v22
             fnm use v22
+            node -v
+            npm install -g pm2
             npm install
             npm run migrate up
             pm2 restart auth-api
